@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>MoodMate — твій щоденник</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="diary-container">
+        <h1>MoodMate</h1>
+        <p>Твій особистий щоденник настрою 🌸</p>
+        <div class="buttons">
+            <a href="{{ url_for('login') }}" class="btn">Увійти</a>
+            <a href="{{ url_for('register') }}" class="btn btn-secondary">Реєстрація</a>
+        </div>
+    </div>
+</body>
+</html>

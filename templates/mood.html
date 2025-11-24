@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Мій щоденник</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="diary-container">
+    <h1>Сьогоднішній настрій</h1>
+    <form method="POST">
+        <div class="mood-cards">
+            {% for mood in mood_types %}
+            <label class="mood-card">
+                <input type="radio" name="mood_id" value="{{ mood._id }}" required>
+                <span class="emoji">{{ mood.emoji }}</span>
+                <span class="mood-name">{{ mood.name.capitalize() }}</span>
+            </label>
+            {% endfor %}
+        </div>
+        <textarea name="note" placeholder="Опиши свій день, думки, емоції..." rows="6"></textarea>
+        <button type="submit" class="btn">Зберегти настрій</button>
+    </form>
+    <a href="{{ url_for('history') }}" class="link">Переглянути щоденник</a>
+    <a href="{{ url_for('logout') }}" class="link">Вийти</a>
+</div>
+</body>
+</html>

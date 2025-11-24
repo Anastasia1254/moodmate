@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Мій щоденник</title>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="diary-container">
+    <h1>Мій щоденник 🌸</h1>
+    <a href="{{ url_for('mood') }}" class="btn">Додати запис</a>
+    <a href="{{ url_for('logout') }}" class="btn btn-secondary">Вийти</a>
+
+    <div class="entries">
+  {% for entry in moods %}
+    <div class="entry">
+      <div class="entry-header">
+        <span class="date">{{ entry.created_at.strftime("%Y-%m-%d %H:%M") }}</span>
+        <span class="emoji">{{ entry.emoji }}</span>
+        <span class="mood-name">{{ entry.mood_name }}</span>
+      </div>
+      <div class="entry-note">{{ entry.note }}</div>
+      <div class="entry-tip">{{ entry.tip_text }}</div>
+    </div>
+  {% endfor %}
+</div>
+</div>
+</body>
+</html>
