@@ -8,7 +8,8 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "supersecretkey")
 
 MONGO_URI = os.environ.get("MONGO_URI")
-client = MongoClient(MONGO_URI)
+client = MongoClient(MONGO_URI, tls=True)
+
 db = client.moodmate_user
 
 users_collection = db.users
